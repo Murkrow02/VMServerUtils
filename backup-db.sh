@@ -36,3 +36,11 @@ if [ ${#files[@]} -gt $max_files ]; then
     echo "Deleted file: ${files[${#files[@]}-i-1]}"
   done
 fi
+
+# Send TG message to communicate success
+# Read the arguments from the file
+read -r token chatId < /home/tg-config.txt
+
+# Execute the script with the arguments
+/home/VMServerUtils/send-tg.sh "$token" "$chatId" "Successfully backupped $database"
+
