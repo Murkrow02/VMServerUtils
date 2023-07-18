@@ -17,7 +17,7 @@ chown  mssql $backup_path
 current_datetime=$(date +"%Y-%m-%d(%H:%M:%S)")
 
 # Connect to SQL Server and perform backup
-sqlcmd -S $server -U $username -P $password -Q "BACKUP DATABASE $database TO DISK='$backup_path/backup-$current_datetime.bak'"
+/opt/mssql-tools/bin/sqlcmd -S $server -U $username -P $password -Q "BACKUP DATABASE $database TO DISK='$backup_path/backup-$current_datetime.bak'"
 
 # Maximum number of files to keep
 max_files=5
